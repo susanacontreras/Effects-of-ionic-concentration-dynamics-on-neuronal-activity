@@ -1,7 +1,12 @@
 # Effects-of-ionic-concentration-dynamics-on-neuronal-activity
 
-Code to generate figures of the dissertation "Effects of ionic concentration dynamics on neuronal activity" by Susana Contreras
+ ## Code to generate figures of the dissertation "Effects of ionic concentration dynamics on neuronal activity" by Susana Contreras
 
-The number of the figure can be found on the name of the notebook.
+### Content
 
-The data used to generate some figures can be found in:
+Each figure of the thesis is generated in a different notebook named after the figure number.
+
+
+### Installation guide
+
+An installation guide, and a tutorial to use AUTO with pyton can be found [here](https://itbgit.biologie.hu-berlin.de/contreras/auto_tutorial.git).
