@@ -1,0 +1,118 @@
+{
+    "ode": [
+      "C*(dv/dt) = - I_Na - I_K - I_L - i_p + I_app",
+      "dm_Na/dt = alpha_m*(1-m_Na)-beta_m*m_Na",
+      "dh_Na/dt = alpha_h*(1-h_Na)-beta_h*h_Na",
+      "dn_K/dt = alpha_n*(1-n_K)-beta_n*n_K"
+    ],
+
+    "init_states":
+    {
+      "m_Na":"0.1",
+      "h_Na":"0.6",
+      "n_K":"0.4",
+      "v":"(-60.0*mV)"
+    },
+
+    "definitions":
+    {
+      "I_Na": "g_Na*(m_Na**3)*h_Na*(v-E_Na)*Q10_gNa**((T-T0)/(10*kelvin))",
+      "I_K": "g_K*(n_K**4)*(v-E_K)*Q10_gK**((T-T0)/(10*kelvin))",
+      "I_L": "I_L_K+I_L_Na",      
+      "i_p": "(I_max*(1/(1+exp(-Na_sens*(Na_i-Na_sens0)))-1/(1+exp(-Na_sens*-Na_sens0/2))))*Q10_gPump**((T-T0)/(10*kelvin))"
+    },
+
+    "functions":
+    {
+      "q_m": "Q10_m**((T-T0)/(10*kelvin))",
+      "q_n": "Q10_n**((T-T0)/(10*kelvin))",
+      "q_h": "Q10_h**((T-T0)/(10*kelvin))",
+      "alpha_m": "0.32*(v/mV+alpha_mV)/(1-exp(-(v/mV+alpha_mV)/4))*q_m/ms",
+      "beta_m": "0.28*(v/mV+beta_mV)/(exp((v/mV+beta_mV)/5)-1)*q_m/ms",
+      "alpha_h": "0.128*exp(-(v/mV+alpha_hV)/18)*q_h/ms",
+      "beta_h": "4/(1+exp(-(v/mV+beta_hV)/5))*q_h/ms",
+      "alpha_n": "0.032*(v/mV+alpha_nV)/(1-exp(-(v/mV+alpha_nV)/5))*q_n/ms",
+      "beta_n": "0.5*exp(-(v/mV+beta_nV)/40)*q_n/ms",
+      "m_Na_inf":"alpha_m/(alpha_m+beta_m)",
+      "h_Na_inf":"alpha_h/(alpha_h+beta_h)",
+      "n_K_inf":"alpha_n/(alpha_n+beta_n)",
+      "I_Nainf":"g_Na*(m_Na_inf**3)*h_Na_inf*(v-E_Na)*Q10_gNa**((T-T0)/(10*kelvin))",
+      "I_Kinf": "g_K*(n_K_inf**4)*(v-E_K)*Q10_gK**((T-T0)/(10*kelvin))",
+      "I_Linf": "g_L*(v-E_L)*Q10_gL**((T-T0)/(10*kelvin))",
+      "i_pinf": "(I_max*(1/(1+exp(-Na_sens*(Na_i-Na_sens0)))-1/(1+exp(-Na_sens*-Na_sens0/2))))*Q10_gPump**((T-T0)/(10*kelvin))",
+      "E_Na": "R*T/F*log(Na_o/Na_i)",
+      "E_K":"R*T/F*log(K_o/K_i)",
+      "E_L":"R*T/F*log((K_o*P_K+Na_o*P_Na)/(K_i*P_K+Na_i*P_Na))",
+      "I_L_K": "g_L*P_K*(v-E_K)*Q10_gL**((T-T0)/(10*kelvin))",
+      "I_L_Na": "g_L*P_Na*(v-E_Na)*Q10_gL**((T-T0)/(10*kelvin))"
+
+    },
+
+    "currents": {
+        "I_Na": "I_Na",
+        "I_K": "I_K",
+        "I_L": "I_L",
+        "i_p": "i_p"
+    },
+    "resting_membrane_pot": {
+      "E_Na": "E_Na",
+      "E_K":"E_K",
+      "E_L":"E_L"
+    },
+
+      "ss_currents": {
+          "I_Nainf":"I_Nainf",
+          "I_Kinf": "I_Kinf",
+          "I_Linf": "I_Linf",
+          "i_pinf": "i_pinf"
+      },
+
+    "parameters": {
+        "I_app": "(1.0 * uA/cm2)",
+
+        "C": "(1.0 * uF/cm2)",
+        "P_K":"0.96",
+        "P_Na":"0.04",
+        "F":"(96484.6*coulomb/mol)",
+        "R":"(8314.4*mjoule/(mol*kelvin))",
+        "T": "(293.15 * kelvin)",
+
+        "g_Na":"(100.0* msiemens/cm2)",
+        "g_K":"(200.0* msiemens/cm2)",
+        "g_L":"(0.1* msiemens/cm2)",
+
+        "alpha_mV":"54.0",
+        "beta_mV":"27.0",
+        "alpha_hV":"50.0",
+        "beta_hV":"27.0",
+
+        "alpha_nV":"52.0",
+        "beta_nV":"57.0",
+
+        "Na_o":"(140.0*mM)",
+        "K_o":"(13.5*mM)",
+        "Na_i":"(10.0*mM)",
+        "K_i":"(150.0*mM)",
+
+        "T0": "291.15 * kelvin",
+
+        "Q10_gL":"1.2",
+        "Q10_gNa":"1.2",
+        "Q10_gK":"1.2",
+        "Q10_gPump":"1.2",
+        "Q10_n":"2.0",
+        "Q10_m":"2.0",
+        "Q10_h":"2.0",
+
+        "I_max":"40.0*uA/cm2",
+        "Na_sens0":"20.0*mM",
+        "Na_sens":"0.1/mM",
+        "i_p0":"-2.59284862*uA/cm2",
+        "Na_o":"140.0*mM",
+        "parstNa":"3",
+        "parstK":"2"
+
+    },
+    "source": "Miles Traub model ++ Na sens Pump"
+}
+

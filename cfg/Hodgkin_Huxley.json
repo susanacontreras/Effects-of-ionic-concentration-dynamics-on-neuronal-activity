@@ -1,0 +1,42 @@
+{
+  "ode": [
+    "C_m*dv/dt = I_in - I_Na - I_K - I_L",
+    "dm/dt = am*(1-m)-bm*m",
+    "dh/dt = ah*(1-h)-bh*h",
+    "dn/dt = an*(1-n)-bn*n"
+  ],
+  "definitions":
+  {
+	  "I_Na" : "gNa*h*m**3*(v-ENa)",
+	  "I_K" : "gK*n**4*(v-EK)",
+	  "I_L" : "gL*(v-EL)"
+  },
+  "init_states":
+  {
+    "v" : "-65 * mV",
+    "m" : "0.5",
+    "h" : "0.5",
+    "n" : "0.5"
+  },
+  "functions":
+  {
+    "an": "0.01*(10.0-v/mV)/(exp((10.0-v/mV)/10.0)-1)/ms",
+    "bn": "0.125*exp(-v/mV/80.0)/ms",
+    "am": "0.1*(25.0-v/mV)/(exp((25.0-v/mV)/10.0)-1)/ms",
+    "bm": "4.0*exp(-v/mV/18.0)/ms",
+    "ah": "0.07*exp(-v/mV/20.0)/ms",
+    "bh": "1.0/(exp((30.0-v/mV)/10.0)+1)/ms"
+  },
+  "parameters":
+  {
+    "gNa": "(120 * (msiemens/cm2))",
+    "gK": "(36 * (msiemens/cm2))",
+    "gL": "(0.3 * (msiemens/cm2))",
+    "ENa": "115 * mV",
+    "EK": "-12 * mV",
+    "EL": "10.6 * mV",
+    "I_in": "1. * uA/cm2",
+    "C_m" : "(1*(ufarad/cm2))"
+  },
+  "source": "Hodgkin&Huxley Model (1952)"
+}

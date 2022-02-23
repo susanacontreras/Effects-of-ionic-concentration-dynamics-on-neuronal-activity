@@ -1,0 +1,15 @@
+{
+  "font.family"         : "sans-serif",
+  "font.sans-serif"     : "Arial",
+  "font.size"           : 12,
+  "axes.titlesize"      : 10,
+  "axes.labelsize"      : 10,
+  "axes.linewidth"      : 0.5,
+  "xtick.labelsize"     : 8,
+  "ytick.labelsize"     : 8,
+  "legend.fontsize"     : 9,
+  "xtick.major.size"    : 1.5,
+  "ytick.major.size"    : 1.5,
+  "figure.titlesize"    : 12,
+  "figure.figsize"      : [5.2,4.5]
+}

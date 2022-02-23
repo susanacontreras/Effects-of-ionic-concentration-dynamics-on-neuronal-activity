@@ -1,0 +1,409 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11745,        400]
+NotebookOptionsPosition[     10100,        336]
+NotebookOutlinePosition[     10437,        351]
+CellTagsIndexPosition[     10394,        348]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["Moments of the ISI distribution", "Section",
+ CellChangeTimes->{{3.843201937599965*^9, 3.843201943012926*^9}}],
+
+Cell["for the limit cycle Plc", "Text",
+ CellChangeTimes->{{3.8432019517535667`*^9, 3.843201979543044*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plc", "[", "t_", "]"}], "=", 
+  RowBox[{
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"t", "-", "\[Mu]"}], ")"}], "^", "2"}]}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       RowBox[{"\[Mu]", "^", "2"}], "*", "D", "*", "t"}], ")"}]}], "]"}], "/", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{"\[Pi]", "*", 
+     RowBox[{"t", "^", "3"}], " ", "2", "D"}], " ", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.84320198327912*^9, 3.8432020806798*^9}, {
+  3.843202177256213*^9, 3.843202259707157*^9}, {3.843202305629182*^9, 
+  3.8432023463166428`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"-", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"t", "-", "\[Mu]"}], ")"}], "2"], 
+     RowBox[{"2", " ", "D", " ", "t", " ", 
+      SuperscriptBox["\[Mu]", "2"]}]]}]], 
+  RowBox[{
+   SqrtBox[
+    RowBox[{"2", " ", "\[Pi]"}]], " ", 
+   SqrtBox[
+    RowBox[{"D", " ", 
+     SuperscriptBox["t", "3"]}]]}]]], "Output",
+ CellChangeTimes->{
+  3.843202071101447*^9, 3.84320219183845*^9, {3.843202247396411*^9, 
+   3.843202260687152*^9}, {3.84320232252756*^9, 3.8432023469848757`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Laplace transform inverse gaussian", "Subsection",
+ CellChangeTimes->{{3.84320246078915*^9, 3.843202467363451*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plcsraw", "[", "s_", "]"}], "=", 
+  RowBox[{"LaplaceTransform", "[", 
+   RowBox[{
+    RowBox[{"Plc", "[", "t", "]"}], ",", "t", ",", "s"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.843202473945804*^9, 3.843202502814583*^9}, {
+   3.8432025639957314`*^9, 3.8432025678691483`*^9}, 3.843204086517859*^9, {
+   3.8432062176921797`*^9, 3.843206224528717*^9}, {3.843207900806528*^9, 
+   3.843207901417527*^9}}],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  FractionBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      SqrtBox["D"]}], " ", 
+     SqrtBox[
+      RowBox[{
+       RowBox[{"2", " ", "s"}], "+", 
+       FractionBox["1", 
+        RowBox[{"D", " ", 
+         SuperscriptBox["\[Mu]", "2"]}]]}]]}], "+", 
+    FractionBox["1", "\[Mu]"]}], "D"]]], "Output",
+ CellChangeTimes->{3.8432025132943487`*^9, 3.843202575072049*^9, 
+  3.843204093394104*^9, 3.843206231554047*^9, 3.84320792134762*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Plcs", "[", "s_", "]"}], "=", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"1", "+", 
+        RowBox[{"2", "D", " ", 
+         RowBox[{"\[Mu]", "^", "2"}], " ", "s"}]}], " ", "]"}]}], ")"}], "/", 
+    
+    RowBox[{"(", 
+     RowBox[{"\[Mu]", " ", "D"}], ")"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.843207908052204*^9, 3.843208025954628*^9}}],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  FractionBox[
+   RowBox[{"1", "-", 
+    SqrtBox[
+     RowBox[{"1", "+", 
+      RowBox[{"2", " ", "D", " ", "s", " ", 
+       SuperscriptBox["\[Mu]", "2"]}]}]]}], 
+   RowBox[{"D", " ", "\[Mu]"}]]]], "Output",
+ CellChangeTimes->{{3.843208006579411*^9, 3.843208027899373*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Laplace transform escape time", "Subsection",
+ CellChangeTimes->{{3.843205268233055*^9, 3.8432052759022512`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Pe", "[", "t_", "]"}], "=", 
+  RowBox[{
+   RowBox[{"Exp", "[", 
+    RowBox[{"-", 
+     RowBox[{"(", 
+      RowBox[{"t", "/", 
+       SubscriptBox["\[Tau]", "e"]}], ")"}]}], "]"}], "/", 
+   SubscriptBox["\[Tau]", "e"]}]}]], "Input",
+ CellChangeTimes->{{3.8432052569035797`*^9, 3.843205350111353*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"-", 
+    FractionBox["t", 
+     SubscriptBox["\[Tau]", "e"]]}]], 
+  SubscriptBox["\[Tau]", "e"]]], "Output",
+ CellChangeTimes->{3.843205352679981*^9, 3.8432080347437553`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Pes", "[", "s_", "]"}], "=", 
+  RowBox[{
+   RowBox[{"LaplaceTransform", "[", 
+    RowBox[{
+     RowBox[{"Pe", "[", "t", "]"}], ",", "t", ",", "s"}], "]"}], "//", 
+   "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.843205361656624*^9, 3.8432053727747183`*^9}, {
+  3.843206234761983*^9, 3.843206241666739*^9}}],
+
+Cell[BoxData[
+ FractionBox["1", 
+  RowBox[{"1", "+", 
+   RowBox[{"s", " ", 
+    SubscriptBox["\[Tau]", "e"]}]}]]], "Output",
+ CellChangeTimes->{{3.843205366493367*^9, 3.843205373651279*^9}, 
+   3.843206242132794*^9, 3.843208038053626*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pisi in laplace domain", "Subsection",
+ CellChangeTimes->{{3.8432061178668013`*^9, 3.843206128361658*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Pisi", "[", "s_", "]"}], "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", "\[Omega]"}], ")"}], "*", 
+    RowBox[{"Plcs", "[", "s", "]"}]}], "+", 
+   RowBox[{"\[Omega]", " ", "*", 
+    RowBox[{"Pes", "[", "s", "]"}], "*", 
+    RowBox[{"Plcs", "[", "s", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.843206142980939*^9, 3.8432062010446177`*^9}, {
+  3.843206249655055*^9, 3.843206282039569*^9}, {3.8432068494319553`*^9, 
+  3.8432068578990192`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    FractionBox[
+     RowBox[{"1", "-", 
+      SqrtBox[
+       RowBox[{"1", "+", 
+        RowBox[{"2", " ", "D", " ", "s", " ", 
+         SuperscriptBox["\[Mu]", "2"]}]}]]}], 
+     RowBox[{"D", " ", "\[Mu]"}]]], " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "\[Omega]"}], ")"}]}], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     FractionBox[
+      RowBox[{"1", "-", 
+       SqrtBox[
+        RowBox[{"1", "+", 
+         RowBox[{"2", " ", "D", " ", "s", " ", 
+          SuperscriptBox["\[Mu]", "2"]}]}]]}], 
+      RowBox[{"D", " ", "\[Mu]"}]]], " ", "\[Omega]"}], 
+   RowBox[{"1", "+", 
+    RowBox[{"s", " ", 
+     SubscriptBox["\[Tau]", "e"]}]}]]}]], "Output",
+ CellChangeTimes->{3.843206285127481*^9, 3.843206747120661*^9, 
+  3.8432068590209513`*^9, 3.843208041070775*^9, 3.84320808336265*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Moments of the distribution", "Section",
+ CellChangeTimes->{{3.843206309879889*^9, 3.8432063145231113`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"M", "[", "k_", "]"}], ":=", 
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"-", "1"}], ")"}], "k"], 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"Pisi", "[", "s", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"s", ",", "k"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{3.843207489784814*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Mu]", "isi"], "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"M", "[", "1", "]"}], "/.", 
+    RowBox[{"s", "\[Rule]", "0"}]}], "//", "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.8432063590689287`*^9, 3.843206452036491*^9}, {
+   3.843206488869975*^9, 3.843206505513187*^9}, 3.843206569027779*^9, {
+   3.843206635441811*^9, 3.84320663819341*^9}, {3.8432066965221853`*^9, 
+   3.843206708893229*^9}, {3.843206739948605*^9, 3.843206743499427*^9}, 
+   3.84320751759993*^9, 3.84320809952031*^9},
+ FormatType->"InputForm"],
+
+Cell[BoxData[
+ RowBox[{"\[Mu]", "+", 
+  RowBox[{"\[Omega]", " ", 
+   SubscriptBox["\[Tau]", "e"]}]}]], "Output",
+ CellChangeTimes->{
+  3.843206377532028*^9, {3.8432064327389793`*^9, 3.843206440155985*^9}, 
+   3.843206506305665*^9, 3.843206570048923*^9, 3.843206638807645*^9, 
+   3.8432067105494556`*^9, {3.843206744053911*^9, 3.8432067515932493`*^9}, 
+   3.8432068615173817`*^9, 3.843207519088011*^9, {3.843208090678834*^9, 
+   3.843208101036784*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[Sigma]", "isi"], "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"M", "[", "2", "]"}], "/.", 
+    RowBox[{"s", "\[Rule]", "0"}]}], "//", "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.843206322727222*^9, 3.843206352426566*^9}, 
+   3.843206691425214*^9, {3.843206778108848*^9, 3.843206782536158*^9}, {
+   3.843206814983243*^9, 3.843206815876272*^9}, 3.843207016866364*^9, {
+   3.8432081068922157`*^9, 3.843208190450091*^9}, {3.843208600496276*^9, 
+   3.843208622007968*^9}, {3.843208740579317*^9, 3.843208742272543*^9}, {
+   3.8432089242149687`*^9, 3.843208924964129*^9}, {3.8432091078837633`*^9, 
+   3.8432091186768303`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[Mu]", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     RowBox[{"D", " ", "\[Mu]"}]}], ")"}]}], "+", 
+  RowBox[{"2", " ", "\[Omega]", " ", 
+   SubscriptBox["\[Tau]", "e"], " ", 
+   RowBox[{"(", 
+    RowBox[{"\[Mu]", "+", 
+     SubscriptBox["\[Tau]", "e"]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.843206339854948*^9, {3.8432067608867273`*^9, 3.843206783302423*^9}, 
+   3.8432068165009336`*^9, 3.843206864710763*^9, 3.843207017534301*^9, 
+   3.843208190922647*^9, {3.843208601962145*^9, 3.8432086224398518`*^9}, 
+   3.843208742716745*^9, 3.843208925633788*^9, {3.843209110097547*^9, 
+   3.843209119323537*^9}}]
+}, Open  ]],
+
+Cell["", "Subsection",
+ CellChangeTimes->{{3.84320871117866*^9, 3.843208714414712*^9}}],
+
+Cell["", "Subsection"]
+}, Open  ]]
+},
+WindowSize->{1920, 1163},
+WindowMargins->{{Automatic, -1}, {-1, Automatic}},
+FrontEndVersion->"10.1 for Linux x86 (64-bit) (March 23, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 16, 0, 33, "Text"],
+Cell[CellGroupData[{
+Cell[599, 24, 116, 1, 65, "Section"],
+Cell[718, 27, 107, 1, 33, "Text"],
+Cell[CellGroupData[{
+Cell[850, 32, 643, 18, 32, "Input"],
+Cell[1496, 52, 585, 18, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2118, 75, 121, 1, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[2264, 80, 437, 9, 32, "Input"],
+Cell[2704, 91, 493, 15, 65, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3234, 111, 458, 14, 32, "Input"],
+Cell[3695, 127, 324, 9, 53, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4068, 142, 119, 1, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[4212, 147, 334, 10, 32, "Input"],
+Cell[4549, 159, 251, 7, 62, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4837, 171, 347, 9, 32, "Input"],
+Cell[5187, 182, 238, 6, 50, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5474, 194, 112, 1, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[5611, 199, 500, 13, 32, "Input"],
+Cell[6114, 214, 894, 27, 74, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7069, 248, 114, 1, 65, "Section"],
+Cell[7186, 251, 351, 12, 32, "Input"],
+Cell[CellGroupData[{
+Cell[7562, 267, 557, 12, 32, "Input"],
+Cell[8122, 281, 451, 9, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8610, 295, 665, 13, 32, "Input"],
+Cell[9278, 310, 679, 17, 32, "Output"]
+}, Open  ]],
+Cell[9972, 330, 87, 1, 44, "Subsection"],
+Cell[10062, 333, 22, 0, 36, "Subsection"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
